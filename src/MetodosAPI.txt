@@ -1,0 +1,57 @@
+GET obtener usuarios - Realizado
+/api/get/usuarios/all.
+
+GET Validar usuario
+/api/validate/user
+
+POST Registrar usuario - A medias
+/api/register/<role>
+
+UPDATE activar usuario - 
+/api/activate/<user>
+
+POST registrar estudio
+/api/register/medic_study
+
+POST registrar DICOM
+/api/register/dicom 
+
+POST registrar instituto 
+/api/register/institute
+
+UPDATE desactivar usuario
+/api/deactivate/user
+
+GET estudio
+/api/get/medic_study/<amount>
+
+*Puede ser all o el id del usuario para recuperar sus estudios
+
+GET dicom
+/api/get/dicom/all
+
+POST crear menus
+/api/create/menu 
+
+GET obtener instituto
+/api/get/institute/<amount>
+
+*Puede ser all o el id del instituto para recuperar sus datos
+
+DELETE instituto
+/api/delete/institute/<id>
+
+DELETE dicom
+/api/delete/dicom/<id>
+
+DELETE estudio
+/api/delete/medic_study/<id>
+
+DELETE usuario
+/api/delete/user/<id>
+
+GET obtener menus
+/api/get/menus/<role>
+
+DELETE menus
+/api/delete/menu/<id>
