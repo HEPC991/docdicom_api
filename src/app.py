@@ -1,4 +1,5 @@
-from flask import Flask,jsonify, request
+import io
+from flask import Flask,jsonify, request, send_file
 from flask_mysqldb import MySQL
 from config import config
 
@@ -23,31 +24,152 @@ def get_usuarios():
         return jsonify({'usuarios':usuarios, 'mensaje':'usuarios listados.'})
     except Exception as ex:
         return jsonify({'mensaje':'Error.'})
+    
 
 @app.route('/api/register/<paciente>', methods = ['POST'])
 def registrar_usuario(paciente):
     try:
         cursor = conexion.connection.cursor()
-        if paciente == 10000001:
+        if paciente == 10000000:
+            sql = "INSERT INTO users (u_email, u_name, u_last_name, u_last_m_name, u_password, u_phone, u_status, u_s_id, u_r_id) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')".format(
+                request.json['u_email'], request.json['u_name'], request.json['u_last_name'],
+                request.json['u_last_m_name'], request.json['u_password'], request.json['u_phone'],
+                request.json['u_status'], request.json['u_s_id'], request.json['u_r_id']
+            )
+        elif paciente == 10000001:
+            sql = "INSERT INTO users (u_email, u_name, u_last_name, u_last_m_name, u_password, u_phone, u_status, u_s_id, u_r_id) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')".format(
+                request.json['u_email'], request.json['u_name'], request.json['u_last_name'],
+                request.json['u_last_m_name'], request.json['u_password'], request.json['u_phone'],
+                request.json['u_status'], request.json['u_s_id'], request.json['u_r_id']
+            )
+        elif paciente == 10000002:
             sql = "CALL insert_patient('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')".format(
                 request.json['u_email'], request.json['u_name'], request.json['u_last_name'],
                 request.json['u_last_m_name'], request.json['u_password'], request.json['u_phone']
             )
-        
         cursor.execute(sql)
         conexion.connection.commit()
         return jsonify({'mensaje':'Usuario registrado.'})
     except Exception as ex:
         return jsonify({'mensaje':'Error de conexion.'})
 
-@app.route('/cursos/<idusr>',methods=['PUT'])
-def activar_usuario(idusr):
+@app.route('/api/activate/<u_id>',methods=['PUT'])
+def activar_usuario(u_id):
     try:
         cursor = conexion.connection.cursor()
-        sql = "UPDATE curso SET nombre = '{0}', creditos = {1} WHERE codigo = '{2}'".format(request.json['nombre'], request.json['creditos'],codigo)
+        sql = "UPDATE users SET u_status = '{0}' WHERE u_id = '{1}'".format(request.json['u_status'],u_id)
         cursor.execute(sql)
         conexion.connection.commit()
-        return jsonify({'mensaje':'Usuario actualizado.'})
+        return jsonify({'mensaje':'Usuario activado.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error de conexion.'})
+
+@app.route('/api/deactivate/<u_id>',methods=['PUT'])
+def desactivar_usuario(u_id):
+    try:
+        cursor = conexion.connection.cursor()
+        sql = "UPDATE users SET u_status = '{0}' WHERE u_id = '{1}'".format(request.json['u_status'],u_id)
+        cursor.execute(sql)
+        conexion.connection.commit()
+        return jsonify({'mensaje':'Usuario desactivado.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error de conexion.'})
+    
+@app.route('/api/register/institute', methods = ['POST'])
+def registrar_instituto():
+    try:
+        cursor = conexion.connection.cursor()
+        sql = "INSERT INTO medical_institutions (mi_institute, mi_address, mi_status) VALUES ('{0}', '{1}', '{2}')".format(
+            request.json['mi_institute'], request.json['mi_address'], request.json['mi_status'])
+        cursor.execute(sql)
+        conexion.connection.commit()
+        return jsonify({'mensaje':'Instituto registrado.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error de conexion.'})
+    
+@app.route('/api/get/medic_study/all', methods = ['GET'])
+def get_estudios():
+    try:
+        cursor= conexion.connection.cursor()
+        sql = "Select ma_date_study, ma_description, ma_status, ma_mi_id, ma_cs_id FROM medical_appoiment"
+        cursor.execute(sql)
+        datos = cursor.fetchall()
+        usuarios = []
+        for fila in datos:
+            curso = {'ma_date_study':fila[0], 'ma_description':fila[1], 'ma_status':fila[2], 
+                     'ma_mi_id':fila[3], 'ma_cs_id':fila[4]}
+            usuarios.append(curso)
+        return jsonify({'usuarios':usuarios, 'mensaje':'estudios listados.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error.'})
+"""   
+@app.route('/api/get/dicom/all', methods=['GET'])
+def get_dicom():
+    try:
+        cursor = conexion.connection.cursor()
+        sql = "SELECT d_serie, d_dicom, d_status, d_ma_id FROM dicoms"
+        cursor.execute(sql)
+        datos = cursor.fetchone()
+        
+        return send_file(io.BytesIO(datos[1]), attachment_filename='dicom.dcm', as_attachment=True)
+    except Exception as ex:
+        return jsonify({'mensaje': 'Error.'})
+"""
+"""
+@app.route('/api/get/dicom/all', methods = ['GET'])
+def get_dicom():
+    try:
+        cursor= conexion.connection.cursor()
+        sql = "Select d_serie, d_status, d_ma_id, d_dicom FROM dicoms"
+        cursor.execute(sql)
+        datos = cursor.fetchall()
+        usuarios = []
+        for fila in datos:
+            curso = {'d_serie':fila[0], 'd_status':fila[1], 'd_ma_id':fila[2]}
+            usuarios.append(curso)
+        return jsonify({'usuarios':usuarios, 'mensaje':'Imagenes DICOM listadas.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error.'})
+"""
+@app.route('/api/get/institute/all', methods = ['GET'])
+def get_institutos():
+    try:
+        cursor= conexion.connection.cursor()
+        sql = "Select mi_institute, mi_address, mi_status FROM medical_institutions"
+        cursor.execute(sql)
+        datos = cursor.fetchall()
+        usuarios = []
+        for fila in datos:
+            curso = {'mi_institute':fila[0], 'mi_address':fila[1], 'mi_status':fila[2]}
+            usuarios.append(curso)
+        return jsonify({'usuarios':usuarios, 'mensaje':'institutos listados.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error.'})
+
+@app.route('/api/get/menus/all', methods = ['GET'])
+def get_menus():
+    try:
+        cursor= conexion.connection.cursor()
+        sql = "Select m_title, m_url, m_status FROM menus"
+        cursor.execute(sql)
+        datos = cursor.fetchall()
+        usuarios = []
+        for fila in datos:
+            curso = {'m_title':fila[0], 'm_url':fila[1], 'm_status':fila[2]}
+            usuarios.append(curso)
+        return jsonify({'usuarios':usuarios, 'mensaje':'menus listados.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error.'})
+
+@app.route('/api/create/menu', methods = ['POST'])
+def crear_menu():
+    try:
+        cursor = conexion.connection.cursor()
+        sql = "INSERT INTO menus (m_title, m_url, m_status) VALUES ('{0}', '{1}', '{2}')".format(
+            request.json['m_title'], request.json['m_url'], request.json['m_status'])
+        cursor.execute(sql)
+        conexion.connection.commit()
+        return jsonify({'mensaje':'Menu registrado.'})
     except Exception as ex:
         return jsonify({'mensaje':'Error de conexion.'})
 
