@@ -24,7 +24,35 @@ def get_usuarios():
         return jsonify({'usuarios':usuarios, 'mensaje':'usuarios listados.'})
     except Exception as ex:
         return jsonify({'mensaje':'Error.'})
-    
+
+@app.route('/api/register/medic_study', methods = ['POST'])
+def registrar_estudio():
+    try:
+        cursor = conexion.connection.cursor()
+        sql = "INSERT INTO medical_appoiment (ma_date_study, ma_description, ma_status, ma_mi_id, ma_cs_id) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')".format(
+            request.json['ma_date_study'], request.json['ma_description'], request.json['ma_status'], request.json['ma_mi_id'], request.json['ma_cs_id'])
+        cursor.execute(sql)
+        conexion.connection.commit()
+        return jsonify({'mensaje':'Estudio registrado.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error de conexion.'})
+
+@app.route('/api/validate/user', methods=['POST'])
+def validar_usuarios():
+    try:
+        cursor = conexion.connection.cursor()
+        cursor.callproc('validate_login', [request.json['u_email']])
+        fila = cursor.fetchone()
+        if fila is not None:
+            usuario = {
+                'u_email': fila[0],
+                'u_password': fila[1],
+            }
+            return jsonify({'mensaje': 'Usuario validado.', 'usuario': usuario})
+        else:
+            return jsonify({'mensaje': 'El usuario no existe.'})
+    except Exception as ex:
+        return jsonify({'mensaje': 'Error al validar el usuario: {}'.format(str(ex))})      
 
 @app.route('/api/register/<paciente>', methods = ['POST'])
 def registrar_usuario(paciente):
@@ -170,6 +198,61 @@ def crear_menu():
         cursor.execute(sql)
         conexion.connection.commit()
         return jsonify({'mensaje':'Menu registrado.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error de conexion.'})
+    
+@app.route('/api/delete/institute/<id>',methods=['DELETE'])
+def eleminar_instituto(id):
+    try:
+        cursor = conexion.connection.cursor()
+        sql = "DELETE FROM medical_institutions WHERE mi_id = '{0}'".format(id)
+        cursor.execute(sql)
+        conexion.connection.commit()
+        return jsonify({'mensaje':'Instituto eliminado.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error de conexion.'})
+    
+@app.route('/api/delete/dicom/<id>',methods=['DELETE'])
+def eleminar_dicom(id):
+    try:
+        cursor = conexion.connection.cursor()
+        sql = "DELETE FROM dicoms WHERE d_id = '{0}'".format(id)
+        cursor.execute(sql)
+        conexion.connection.commit()
+        return jsonify({'mensaje':'Imagen dicom eliminada.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error de conexion.'})
+    
+@app.route('/api/delete/medic_study/<id>',methods=['DELETE'])
+def eleminar_estudio(id):
+    try:
+        cursor = conexion.connection.cursor()
+        sql = "DELETE FROM medical_appoiment WHERE ma_id = '{0}'".format(id)
+        cursor.execute(sql)
+        conexion.connection.commit()
+        return jsonify({'mensaje':'Estudio eliminado.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error de conexion.'})
+
+@app.route('/api/delete/user/<id>',methods=['DELETE'])
+def eleminar_usuario(id):
+    try:
+        cursor = conexion.connection.cursor()
+        sql = "DELETE FROM users WHERE u_id = '{0}'".format(id)
+        cursor.execute(sql)
+        conexion.connection.commit()
+        return jsonify({'mensaje':'Usuario eliminado.'})
+    except Exception as ex:
+        return jsonify({'mensaje':'Error de conexion.'})
+    
+@app.route('/api/delete/menu/<id>',methods=['DELETE'])
+def eleminar_menu(id):
+    try:
+        cursor = conexion.connection.cursor()
+        sql = "DELETE FROM menus WHERE m_id = '{0}'".format(id)
+        cursor.execute(sql)
+        conexion.connection.commit()
+        return jsonify({'mensaje':'Menu eliminado.'})
     except Exception as ex:
         return jsonify({'mensaje':'Error de conexion.'})
 
