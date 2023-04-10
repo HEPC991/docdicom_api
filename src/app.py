@@ -57,18 +57,19 @@ def validar_usuarios():
 @app.route('/api/register/<paciente>', methods = ['POST'])
 def registrar_usuario(paciente):
     try:
+        paciente = int(paciente)
         cursor = conexion.connection.cursor()
         if paciente == 10000000:
             sql = "INSERT INTO users (u_email, u_name, u_last_name, u_last_m_name, u_password, u_phone, u_status, u_s_id, u_r_id) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')".format(
                 request.json['u_email'], request.json['u_name'], request.json['u_last_name'],
                 request.json['u_last_m_name'], request.json['u_password'], request.json['u_phone'],
-                request.json['u_status'], request.json['u_s_id'], request.json['u_r_id']
+                request.json['u_status'], request.json['u_s_id'], int(paciente)
             )
         elif paciente == 10000001:
             sql = "INSERT INTO users (u_email, u_name, u_last_name, u_last_m_name, u_password, u_phone, u_status, u_s_id, u_r_id) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')".format(
                 request.json['u_email'], request.json['u_name'], request.json['u_last_name'],
                 request.json['u_last_m_name'], request.json['u_password'], request.json['u_phone'],
-                request.json['u_status'], request.json['u_s_id'], request.json['u_r_id']
+                request.json['u_status'], request.json['u_s_id'], paciente
             )
         elif paciente == 10000002:
             sql = "CALL insert_patient('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')".format(
