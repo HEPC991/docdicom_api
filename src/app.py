@@ -1,9 +1,12 @@
 import io
 from flask import Flask,jsonify, request, send_file
 from flask_mysqldb import MySQL
+from flask_cors import CORS
 from config import config
 
 app = Flask(__name__)
+
+CORS(app)
 
 conexion =MySQL(app)
 
@@ -48,7 +51,7 @@ def validar_usuarios():
                 'u_email': fila[0],
                 'u_password': fila[1],
             }
-            return jsonify({'mensaje': 'Usuario validado.', 'usuario': usuario})
+            return jsonify({'mensaje': 'Usuario validado.', 'usuario': usuario['u_email']})
         else:
             return jsonify({'mensaje': 'El usuario no existe.'})
     except Exception as ex:

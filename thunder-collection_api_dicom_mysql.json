@@ -1,0 +1,193 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "api_dicom_mysql",
+    "dateExported": "2023-04-10T20:34:20.933Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "2df71ad8-d0d0-4b6c-ae58-3746d2f75071",
+            "colId": "1ceb0e81-ce36-4ae9-bd2a-d330325d3a80",
+            "containerId": "",
+            "name": "GET usuarios",
+            "url": "http://127.0.0.1:5000/api/get/usuarios/all",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-03-27T02:41:21.516Z",
+            "modified": "2023-03-27T02:41:47.552Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b323f970-4425-4609-ad9c-202196da6932",
+            "colId": "1ceb0e81-ce36-4ae9-bd2a-d330325d3a80",
+            "containerId": "",
+            "name": "POST registrar_paciente",
+            "url": "http://127.0.0.1:5000/api/register/paciente",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-03-27T03:11:36.442Z",
+            "modified": "2023-03-27T03:20:40.085Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"u_email\": \"Rosalina@gmail.com\",\n  \"u_name\": \"Rosalina\",\n  \"u_last_name\": \"Lorez\",\n  \"u_last_m_name\": \"Lorax\",\n  \"u_password\": \"123456789\",\n  \"u_phone\": \"7732224952\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f5976ec8-8e6a-4c6d-99aa-c36a17b386e4",
+            "colId": "1ceb0e81-ce36-4ae9-bd2a-d330325d3a80",
+            "containerId": "",
+            "name": "PUT act_usr",
+            "url": "http://127.0.0.1:5000/api/activate/10000010",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2023-04-04T19:29:46.934Z",
+            "modified": "2023-04-04T19:41:49.497Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"u_status\": \"A\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "45cfc339-3846-4f08-bcbd-8d2a7369381a",
+            "colId": "1ceb0e81-ce36-4ae9-bd2a-d330325d3a80",
+            "containerId": "",
+            "name": "POST registrar_institutos",
+            "url": "http://127.0.0.1:5000/api/register/institute",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-04-04T20:05:28.884Z",
+            "modified": "2023-04-04T20:08:17.589Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"mi_institute\": \"Farmacias similares\",\n  \"mi_address\": \"Calle 3 de mayo\",\n  \"mi_status\": \"A\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2f4eb309-a876-485b-ae9a-9ae470df8f65",
+            "colId": "1ceb0e81-ce36-4ae9-bd2a-d330325d3a80",
+            "containerId": "",
+            "name": "GET estudios",
+            "url": "http://127.0.0.1:5000/api/get/medic_study/all",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-04-04T22:07:28.436Z",
+            "modified": "2023-04-04T22:07:54.671Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "293ae4ff-d79e-4607-adb3-517dc04633a1",
+            "colId": "1ceb0e81-ce36-4ae9-bd2a-d330325d3a80",
+            "containerId": "",
+            "name": "GET dicom",
+            "url": "http://127.0.0.1:5000/api/get/dicom/all",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2023-04-04T22:15:57.440Z",
+            "modified": "2023-04-04T22:16:28.942Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c2983171-e9c2-4035-8077-208dab7bfa3b",
+            "colId": "1ceb0e81-ce36-4ae9-bd2a-d330325d3a80",
+            "containerId": "",
+            "name": "Get institutos",
+            "url": "http://127.0.0.1:5000/api/get/institute/all",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2023-04-04T23:40:47.653Z",
+            "modified": "2023-04-04T23:44:51.801Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "120beb69-8511-4ce7-9976-0c36f8f72a18",
+            "colId": "1ceb0e81-ce36-4ae9-bd2a-d330325d3a80",
+            "containerId": "",
+            "name": "Get menus",
+            "url": "http://127.0.0.1:5000/api/get/menus/all",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2023-04-04T23:49:07.010Z",
+            "modified": "2023-04-04T23:49:40.261Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6aafbe05-7eef-41b0-8203-c4e681868a84",
+            "colId": "1ceb0e81-ce36-4ae9-bd2a-d330325d3a80",
+            "containerId": "",
+            "name": "POST menu",
+            "url": "http://127.0.0.1:5000/api/create/menu",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2023-04-04T23:53:26.067Z",
+            "modified": "2023-04-04T23:55:45.643Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"m_title\": \"Mod dicom gta\",\n  \"m_url\": \"http:://simi.com\",\n  \"m_status\": \"A\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "47a2174e-bb3a-4420-8231-277ba12f1c65",
+            "colId": "1ceb0e81-ce36-4ae9-bd2a-d330325d3a80",
+            "containerId": "",
+            "name": "POST validar usuario",
+            "url": "http://127.0.0.1:5000/api/validate/user",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2023-04-07T00:47:50.472Z",
+            "modified": "2023-04-07T00:53:51.702Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"u_email\": \"hugo14@gmail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d6526188-21ad-432e-a3aa-7860bfaa4d79",
+            "colId": "1ceb0e81-ce36-4ae9-bd2a-d330325d3a80",
+            "containerId": "",
+            "name": "POST registrar_estudio",
+            "url": "http://127.0.0.1:5000/api/register/medic_study",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2023-04-08T00:45:52.331Z",
+            "modified": "2023-04-08T00:49:33.759Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"ma_date_study\": \"2023-03-15\",\n  \"ma_description\": \"Accidente de pacha\",\n  \"ma_status\": \"D\",\n  \"ma_mi_id\": \"10000009\",\n  \"ma_cs_id\": \"10000009\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
