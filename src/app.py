@@ -10,12 +10,13 @@ from routes.inserts import insert
 from routes.test import test
 from routes.validation import validate
 from routes.handlers import page_not_found
+import os
 
 app = Flask(__name__)
 
 bcrypt = Bcrypt(app)
 
-CORS(app)
+CORS(app, origins=os.getenv('ORIGINS'))
 
 conexion = MySQL(app)
 
