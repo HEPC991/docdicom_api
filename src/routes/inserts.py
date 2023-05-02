@@ -1,7 +1,11 @@
 from flask import Flask, jsonify, request, Blueprint
 from database.db import conexion
 from encrypt.doccrypt import bcrypt
-
+import pydicom
+from PIL import Image
+from io import BytesIO
+import base64
+import numpy
 
 insert = Blueprint('insert', __name__, url_prefix='/api/register/')
 
@@ -102,3 +106,41 @@ def crear_menu():
         return jsonify({'mensaje':'Menu registrado.'})
     except Exception as ex:
         return jsonify({'mensaje':'Error de conexion.'})
+    
+@insert.post('guardar/dicoms/<int:ma_id>')
+def guardar_dicoms_y_convertirlos(ma_id):
+    try:
+        files = request.files.getlist('dicom')
+
+        for file in files:
+
+            file = file.read()
+            dcm = pydicom.dcmread(BytesIO(file))
+            dcm_enconded = base64.b64encode(file).decode('utf-8')
+
+            img = Image.fromarray(dcm.pixel_array)
+    
+            with BytesIO() as output:
+                img.save(output, format="png")
+                imagen_codificada = base64.b64encode(output.getvalue()).decode('utf-8')
+
+            cursor = conexion.connection.cursor()
+            serie_number = dcm.SeriesInstanceUID
+
+            cursor.callproc('sp_save_dicom', [
+                serie_number,
+                dcm_enconded,
+                imagen_codificada,
+                ma_id
+            ])
+            
+
+            conexion.connection.commit()
+            cursor.close()
+
+
+        return jsonify({'mensaje':'Dicoms guardados.'})
+
+    except Exception as ex:
+        return jsonify({'mensaje':ex})
+    
