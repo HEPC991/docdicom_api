@@ -140,3 +140,9 @@ BEGIN
     WHERE u_email = email_u;
 END;
 
+create
+    definer = root@localhost procedure sp_save_dicom(IN in_d_serie varchar(500), IN in_d_dicom mediumblob,
+                                                     IN in_d_ma_id bigint unsigned)
+begin
+    insert into dicoms (d_serie, d_dicom, d_ma_id) values(in_d_serie, in_d_dicom, in_d_ma_id);
+end;

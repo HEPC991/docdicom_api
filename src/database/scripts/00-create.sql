@@ -231,7 +231,7 @@ DROP TABLE IF EXISTS dicoms;
 CREATE TABLE IF NOT EXISTS dicoms(
     d_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT
         COMMENT 'Identificador de un único archivo dicom',
-    d_serie VARCHAR(20) NOT NULL
+    d_serie VARCHAR(500) NOT NULL
         COMMENT 'Serie a la que pertenece el dicom',
     d_dicom MEDIUMBLOB
         COMMENT 'Es el archivo dicom',
@@ -257,7 +257,7 @@ DROP TABLE IF EXISTS images;
 CREATE TABLE IF NOT EXISTS images(
     i_d_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT
         COMMENT 'Identificador de un único archivo dicom',
-    i_d_serie VARCHAR(20) NOT NULL
+    i_d_serie VARCHAR(500) NOT NULL
         COMMENT 'Serie a la que pertenece el dicom',
     i_image MEDIUMBLOB
         COMMENT 'Es la imagen',
