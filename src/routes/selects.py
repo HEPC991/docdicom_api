@@ -30,7 +30,7 @@ def get_usuarios():
 def obtener_usuarios_por_rol(id_rol):
     try:
         cursor = conexion.connection.cursor()
-        cursor.callproc('sp_get_administrators', [id_rol])
+        cursor.callproc('sp_get_users_by_role', [id_rol])
         datos = cursor.fetchall()
         if datos is not None:
             return jsonify({'mensaje':'Administradores listados.', 'Administradores':datos}), 200
