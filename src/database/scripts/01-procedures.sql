@@ -758,6 +758,27 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_register_history` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_register_history`(IN in_user_id bigint unsigned, in in_medical_id bigint unsigned)
+begin
+
+    insert into history_medical (hm_u_id, hm_ma_id, hm_status) values(in_user_id, in_medical_id, 'A');
+
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `sp_register_institute` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -792,14 +813,10 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_register_medic_study`(IN ms_date_study date, IN ms_description tinytext,
-
-                                                               IN ms_status enum ('A', 'D'),
-
                                                                IN ms_mi_id bigint unsigned, IN ms_cs_id bigint unsigned)
 begin
-
-    insert into medical_appoiment (ma_date_study, ma_description, ma_status, ma_mi_id, ma_cs_id) values(ms_date_study, ms_description, ms_status, ms_mi_id, ms_cs_id);
-
+    insert into medical_appoiment (ma_date_study, ma_description, ma_status, ma_mi_id, ma_cs_id) values(ms_date_study, ms_description, 'A', ms_mi_id, ms_cs_id);
+    select max(ma_id) `id` from medical_appoiment;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -817,12 +834,11 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_save_dicom`(IN in_d_serie varchar(500), IN in_d_dicom mediumblob,
-
-                                                     IN in_d_ma_id bigint unsigned)
+                                                     IN in_image mediumblob, IN in_d_ma_id bigint unsigned)
 begin
-
-    insert into dicoms (d_serie, d_dicom, d_ma_id) values(in_d_serie, in_d_dicom, in_d_ma_id);
-
+    insert into dicoms (d_serie, d_dicom, d_ma_id, d_status) values(in_d_serie, in_d_dicom, in_d_ma_id, 'A');
+    set @last_id = (select max(d_id) from dicoms);
+    insert into images (i_d_id, i_d_serie, i_image, i_status) VALUES (@last_id, in_d_serie, in_image, 'A');
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -876,4 +892,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-06 23:28:14
+-- Dump completed on 2023-05-07  2:15:32
