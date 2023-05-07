@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "c13b6aa9-571c-45be-8bfe-e49ee7f5800b",
+    "name": "env",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2023-05-07T07:38:51.748Z",
+    "modified": "2023-05-07T07:38:51.748Z",
+    "data": [
+      {
+        "name": "MYSQL_USER",
+        "value": "root"
+      },
+      {
+        "name": "MYSQL_PASSWORD",
+        "value": "Alucard29+"
+      },
+      {
+        "name": "MYSQL_DB",
+        "value": "dicom"
+      },
+      {
+        "name": "DEBUG",
+        "value": "True"
+      },
+      {
+        "name": "ORIGINS",
+        "value": "http(s)?://localhost(:[0-9]+)?"
+      }
+    ]
+  }
+]

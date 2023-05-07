@@ -1,0 +1,662 @@
+[
+  {
+    "_id": "0c2e7263-166d-4dd9-a55c-a1dd3a365fec",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "0a40b83d-7a9b-4882-b514-5d2fef1f99fc",
+    "name": "get by serie number",
+    "url": "http://localhost:5000/api/get/images/1.3.6.1.4.1.14519.5.2.1.133056779001602774748954083940172404512",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-05-07T07:37:52.419Z",
+    "modified": "2023-05-07T07:46:57.004Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "67e8e4ef-5079-4f18-a7f8-6b65c09d8d37",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "0a40b83d-7a9b-4882-b514-5d2fef1f99fc",
+    "name": "list all",
+    "url": "http://localhost:5000/api/get/image/all",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-05-07T07:37:52.421Z",
+    "modified": "2023-05-07T07:37:52.421Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "5b2a9184-81c1-400c-ad6b-6863050c2433",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "0a40b83d-7a9b-4882-b514-5d2fef1f99fc",
+    "name": "list by cita medica",
+    "url": "http://localhost:5000/api/get/images/10000004",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-05-07T07:37:52.422Z",
+    "modified": "2023-05-07T07:37:52.422Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "af4d469b-124e-47e9-ba53-16a620b45b75",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "0a40b83d-7a9b-4882-b514-5d2fef1f99fc",
+    "name": "get one",
+    "url": "http://localhost:5000/api/get/image/10000045",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-05-07T07:37:52.423Z",
+    "modified": "2023-05-07T07:47:03.067Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "ed5d107c-3da0-45e7-850a-d2ec9c8602a3",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "e875bd2e-063d-46a1-82c1-60e5972dc427",
+    "name": "register",
+    "url": "http://localhost:5000/api/register/guardar/dicoms/10000004",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2023-05-07T07:37:52.424Z",
+    "modified": "2023-05-07T07:37:52.424Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "form": [],
+      "files": [
+        {
+          "name": "dicom",
+          "value": "C:\\Users\\jordi\\Desktop\\1-224.dcm",
+          "isDisabled": false
+        },
+        {
+          "name": "dicom",
+          "value": "C:\\Users\\jordi\\Desktop\\1-226.dcm",
+          "isDisabled": false
+        },
+        {
+          "name": "dicom",
+          "value": "C:\\Users\\jordi\\Desktop\\1-229.dcm",
+          "isDisabled": false
+        },
+        {
+          "name": "dicom",
+          "value": "C:\\Users\\jordi\\Desktop\\1-230.dcm",
+          "isDisabled": false
+        }
+      ],
+      "type": "formdata"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "15f58742-a5aa-4c51-b587-4b46b13067e3",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "e875bd2e-063d-46a1-82c1-60e5972dc427",
+    "name": "list",
+    "url": "http://localhost:5000/api/get/dicom/all",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-05-07T07:37:52.425Z",
+    "modified": "2023-05-07T07:37:52.425Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "4436fdc6-50de-4176-8f18-f321e41a5894",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "e875bd2e-063d-46a1-82c1-60e5972dc427",
+    "name": "delete",
+    "url": "http://localhost:5000/api/delete/dicom/10000001",
+    "method": "DELETE",
+    "sortNum": 70000,
+    "created": "2023-05-07T07:37:52.426Z",
+    "modified": "2023-05-07T07:37:52.426Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"m_by_user\":10000011\n}"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "978eb4ef-ea2c-4b81-9fcd-f35c9bd319ee",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "79d9d957-0797-4629-989e-36a58c80303c",
+    "name": "list by role",
+    "url": "http://localhost:5000/api/get/menus/10000000",
+    "method": "GET",
+    "sortNum": 80000,
+    "created": "2023-05-07T07:37:52.427Z",
+    "modified": "2023-05-07T07:37:52.427Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "f9da7d46-6b7c-4c00-b55c-e2e0a81785e1",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "79d9d957-0797-4629-989e-36a58c80303c",
+    "name": "delete",
+    "url": "http://localhost:5000/api/delete/menu/10000011",
+    "method": "DELETE",
+    "sortNum": 90000,
+    "created": "2023-05-07T07:37:52.428Z",
+    "modified": "2023-05-07T07:37:52.428Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\n\t\"m_by_user\":10000011\n}"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "05d0d1bf-ab4b-4059-afb4-4af1aab58353",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "79d9d957-0797-4629-989e-36a58c80303c",
+    "name": "create",
+    "url": "http://localhost:5000/api/register/menu",
+    "method": "POST",
+    "sortNum": 100000,
+    "created": "2023-05-07T07:37:52.429Z",
+    "modified": "2023-05-07T07:37:52.429Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"m_title\":\"Test menu\",\n\t\"m_url\":\"htt://test-menu.test\",\n\t\"m_status\":\"A\"\n}"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "b15112cb-83a5-4aeb-8198-65e9013f8ef5",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "79d9d957-0797-4629-989e-36a58c80303c",
+    "name": "list",
+    "url": "http://localhost:5000/api/get/menus/all",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2023-05-07T07:37:52.430Z",
+    "modified": "2023-05-07T07:37:52.430Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "e9f1a49b-ec72-4c5c-964d-0dce8a026a6e",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "543244fd-9208-472a-9727-180a73c29915",
+    "name": "list by id",
+    "url": "http://localhost:5000/api/get/institute/10000003",
+    "method": "GET",
+    "sortNum": 120000,
+    "created": "2023-05-07T07:37:52.431Z",
+    "modified": "2023-05-07T07:37:52.431Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "303e9520-5ad9-4438-a369-e1aba23e240e",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "543244fd-9208-472a-9727-180a73c29915",
+    "name": "register",
+    "url": "http://localhost:5000/api/register/institute",
+    "method": "POST",
+    "sortNum": 130000,
+    "created": "2023-05-07T07:37:52.432Z",
+    "modified": "2023-05-07T07:37:52.432Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"mi_name\":\"Test name\",\n\t\"mi_address\":\"Test address\"\n}"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "3a3606ea-b8fe-4edc-bb98-6ccc1ede2b7f",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "543244fd-9208-472a-9727-180a73c29915",
+    "name": "delete",
+    "url": "http://localhost:5000/api/delete/institute/10000010",
+    "method": "DELETE",
+    "sortNum": 140000,
+    "created": "2023-05-07T07:37:52.433Z",
+    "modified": "2023-05-07T07:37:52.433Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"m_by_user\":10000011\n}"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "495def1f-2e3d-44a3-ab53-7b10575756f1",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "543244fd-9208-472a-9727-180a73c29915",
+    "name": "list",
+    "url": "http://localhost:5000/api/get/institute/all",
+    "method": "GET",
+    "sortNum": 150000,
+    "created": "2023-05-07T07:37:52.434Z",
+    "modified": "2023-05-07T07:37:52.434Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "c8177478-030d-4a7b-a47f-4c027aa11afc",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "68549f79-ef2f-481b-85f9-e5961a66fcc6",
+    "name": "files and body",
+    "url": "http://localhost:5000/api/test/insert/files/and/data",
+    "method": "POST",
+    "sortNum": 160000,
+    "created": "2023-05-07T07:37:52.435Z",
+    "modified": "2023-05-07T07:37:52.435Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "form": [
+        {
+          "name": "email",
+          "value": "asdads@asda.com",
+          "isDisabled": false
+        },
+        {
+          "name": "name",
+          "value": "jordi",
+          "isDisabled": true
+        },
+        {
+          "name": "phone",
+          "value": "4543212122",
+          "isDisabled": true
+        }
+      ],
+      "files": [
+        {
+          "name": "files",
+          "value": "C:\\Users\\jorsh\\Downloads\\decir-verdad.pdf",
+          "isDisabled": false
+        },
+        {
+          "name": "files",
+          "value": "C:\\Users\\jorsh\\Downloads\\carta-compromiso.pdf",
+          "isDisabled": true
+        },
+        {
+          "name": "files",
+          "value": "C:\\Users\\jorsh\\Downloads\\solicitud-apoyo.pdf",
+          "isDisabled": true
+        }
+      ],
+      "type": "formdata"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "7fa4fdb3-7d92-45e1-92b5-064a31819901",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "68549f79-ef2f-481b-85f9-e5961a66fcc6",
+    "name": "New Request",
+    "url": "http://localhost:5000/api/test/otro/test/mas",
+    "method": "POST",
+    "sortNum": 170000,
+    "created": "2023-05-07T07:37:52.436Z",
+    "modified": "2023-05-07T07:37:52.436Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "form": [],
+      "files": [
+        {
+          "name": "dicom",
+          "value": "C:\\Users\\jordi\\Desktop\\1-226.dcm"
+        }
+      ],
+      "type": "formdata"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "76c8cdf4-2ed2-43d0-b03f-e68f4aaaa30f",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "68549f79-ef2f-481b-85f9-e5961a66fcc6",
+    "name": "list files",
+    "url": "http://localhost:5000/api/test/files/upload",
+    "method": "POST",
+    "sortNum": 180000,
+    "created": "2023-05-07T07:37:52.437Z",
+    "modified": "2023-05-07T07:37:52.437Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "form": [],
+      "files": [
+        {
+          "name": "dicom",
+          "value": "C:\\Users\\jordi\\Desktop\\1-226.dcm"
+        }
+      ],
+      "type": "formdata"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "88715291-69ec-46b7-b72f-ca57277a31c1",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "68549f79-ef2f-481b-85f9-e5961a66fcc6",
+    "name": "insert",
+    "url": "http://localhost:5000/api/test/insert/dicom",
+    "method": "GET",
+    "sortNum": 190000,
+    "created": "2023-05-07T07:37:52.438Z",
+    "modified": "2023-05-07T07:37:52.438Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "ed97c9a0-5157-4a1d-bd11-671b7725c708",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "68549f79-ef2f-481b-85f9-e5961a66fcc6",
+    "name": "conversion de dicom a png",
+    "url": "http://localhost:5000/api/test/convert/dicom/image",
+    "method": "GET",
+    "sortNum": 200000,
+    "created": "2023-05-07T07:37:52.439Z",
+    "modified": "2023-05-07T07:37:52.439Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "55413f81-4088-4710-90c2-24a2122f65cf",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "68549f79-ef2f-481b-85f9-e5961a66fcc6",
+    "name": "not found",
+    "url": "http://localhost:5000/apia",
+    "method": "POST",
+    "sortNum": 210000,
+    "created": "2023-05-07T07:37:52.440Z",
+    "modified": "2023-05-07T07:37:52.440Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "b872cd22-6a2d-44ed-919d-da2226a8086d",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "68549f79-ef2f-481b-85f9-e5961a66fcc6",
+    "name": "test to convert a number",
+    "url": "http://localhost:5000/api/test/number/asdas",
+    "method": "GET",
+    "sortNum": 220000,
+    "created": "2023-05-07T07:37:52.441Z",
+    "modified": "2023-05-07T07:37:52.441Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "02a2ba06-f05f-4a38-ba98-89bf1200f077",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "a9689512-82b7-4f62-84e3-545e419bb987",
+    "name": "list by institute id",
+    "url": "http://localhost:5000/api/get/medic_study/all/by/institute/10000004",
+    "method": "GET",
+    "sortNum": 230000,
+    "created": "2023-05-07T07:37:52.442Z",
+    "modified": "2023-05-07T07:37:52.442Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "d4f6b526-882b-4b75-b8a6-67f21d84018f",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "a9689512-82b7-4f62-84e3-545e419bb987",
+    "name": "list by user id",
+    "url": "http://localhost:5000/api/get/medic_study/all/by/user/10000005",
+    "method": "GET",
+    "sortNum": 240000,
+    "created": "2023-05-07T07:37:52.443Z",
+    "modified": "2023-05-07T07:37:52.443Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "6dab1baf-cc14-4140-aa04-3817ee6aab92",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "a9689512-82b7-4f62-84e3-545e419bb987",
+    "name": "Registrar una cita medica de un paciente",
+    "url": "http://localhost:5000/api/register/medic_study",
+    "method": "POST",
+    "sortNum": 250000,
+    "created": "2023-05-07T07:37:52.444Z",
+    "modified": "2023-05-07T07:37:52.444Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "form": [
+        {
+          "name": "ms_date_study",
+          "value": "2023-05-30 10:42:36"
+        },
+        {
+          "name": "ms_description",
+          "value": "Test de cita medica 2"
+        },
+        {
+          "name": "ms_mi_id",
+          "value": "10000002"
+        },
+        {
+          "name": "ms_cs_id",
+          "value": "10000002"
+        },
+        {
+          "name": "u_id",
+          "value": "10000008"
+        }
+      ],
+      "files": [
+        {
+          "name": "dicoms",
+          "value": "C:\\Users\\jorsh\\Downloads\\datasets\\New Folder\\manifest-1683026261323\\CPTAC-LSCC\\C3N-05630\\03-08-2003-NA-KT KLATKI PIERSIOWEJ ZE WZMOCNIENIEM KONTRASTOWYM-62421\\1.000000-TOPOGRAM-00071\\1-1.dcm"
+        },
+        {
+          "name": "dicoms",
+          "value": "C:\\Users\\jorsh\\Downloads\\datasets\\New Folder\\manifest-1683026261323\\CPTAC-LSCC\\C3N-05630\\03-08-2003-NA-KT KLATKI PIERSIOWEJ ZE WZMOCNIENIEM KONTRASTOWYM-62421\\1.000000-TOPOGRAM-00071\\1-2.dcm"
+        },
+        {
+          "name": "dicoms",
+          "value": "C:\\Users\\jorsh\\Downloads\\datasets\\New Folder\\manifest-1683026261323\\CPTAC-LSCC\\C3N-05630\\03-08-2003-NA-KT KLATKI PIERSIOWEJ ZE WZMOCNIENIEM KONTRASTOWYM-62421\\1.000000-TOPOGRAM-00071\\1-3.dcm"
+        }
+      ],
+      "type": "formdata"
+    },
+    "docs": "# Requiero\n* El identificador del paciente al que se le hizo la cita\n* Los datos de la cita medica: \n\t* fecha\n\t* descripcion de la cita\n\t* identificar del instituto que realizó\n\t* identificador de la categoria a la que pertenece\n* los archivos dicom son opcionales, es decir, la api va a responder con 201 incluso si no hay dicoms en la peticion, si requieres que sea obligatiorio dime.\n\n# ¿Qué sucede?\n### Cita medica\nUsando los datos de la cita medica, creo dicha cita en la base de datos, obtengo el último id registrado y lo utilizo para registrar cada imagen dicom\n### dicoms\nSi hay dicoms en el request los hago iterarse en un for para convertir cada imagen dcm a png y hacer un registro masivo, si no hay dicoms no se hace dicha iteracion y no afecta ni la base de datos ni la consulta a la api.\n### historial medico\nUna vez creada la cita medica y con el id del usuario creo un registro por su cita medica."
+  },
+  {
+    "_id": "c39679a5-f614-448a-914b-da2bca5fd158",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "a9689512-82b7-4f62-84e3-545e419bb987",
+    "name": "delete",
+    "url": "http://localhost:5000/api/delete/medic_study/10000011",
+    "method": "DELETE",
+    "sortNum": 260000,
+    "created": "2023-05-07T07:37:52.445Z",
+    "modified": "2023-05-07T07:37:52.445Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"m_by_user\":10000011\n}"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "6ec4de4b-ca65-4343-8e0b-514b2684c3fb",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "a9689512-82b7-4f62-84e3-545e419bb987",
+    "name": "list",
+    "url": "http://localhost:5000/api/get/medic_study/all",
+    "method": "GET",
+    "sortNum": 270000,
+    "created": "2023-05-07T07:37:52.446Z",
+    "modified": "2023-05-07T07:37:52.446Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "cfc06fe1-2932-4797-928a-a0000e5cc57d",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "1766ce26-d5d3-47f7-ad92-e027665866c9",
+    "name": "list by role",
+    "url": "http://localhost:5000/api/get/usuarios/all/by/role/10000001",
+    "method": "GET",
+    "sortNum": 280000,
+    "created": "2023-05-07T07:37:52.447Z",
+    "modified": "2023-05-07T07:37:52.447Z",
+    "headers": [],
+    "params": [],
+    "docs": ""
+  },
+  {
+    "_id": "e58a7415-df42-4197-b08b-32bb16e7c544",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "1766ce26-d5d3-47f7-ad92-e027665866c9",
+    "name": "delete",
+    "url": "http://localhost:5000/api/delete/user/10000016",
+    "method": "DELETE",
+    "sortNum": 290000,
+    "created": "2023-05-07T07:37:52.448Z",
+    "modified": "2023-05-07T07:37:52.448Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"m_by_user\":10000011\n}"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "15221fa1-0990-4ea1-8079-e548d378cb22",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "1766ce26-d5d3-47f7-ad92-e027665866c9",
+    "name": "deactivate",
+    "url": "http://localhost:5000/api/update/deactivate/user/10000011",
+    "method": "PUT",
+    "sortNum": 300000,
+    "created": "2023-05-07T07:37:52.449Z",
+    "modified": "2023-05-07T07:37:52.449Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"m_by_user\":10000011\n}"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "6910ac88-004c-4f40-8c18-2a16b47eece1",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "1766ce26-d5d3-47f7-ad92-e027665866c9",
+    "name": "activate",
+    "url": "http://localhost:5000/api/update/activate/user/10000014",
+    "method": "PUT",
+    "sortNum": 310000,
+    "created": "2023-05-07T07:37:52.450Z",
+    "modified": "2023-05-07T07:37:52.450Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"m_by_user\":10000011\n}"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "4180a500-8190-4f86-a63e-d06f75b3be2a",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "1766ce26-d5d3-47f7-ad92-e027665866c9",
+    "name": "create patient",
+    "url": "http://localhost:5000/api/register/10000002",
+    "method": "POST",
+    "sortNum": 320000,
+    "created": "2023-05-07T07:37:52.451Z",
+    "modified": "2023-05-07T07:37:52.451Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"u_email\":\"jordi88@gmail.com\",\n\t\"u_name\":\"jordi\",\n\t\"u_last_name\":\"elver\",\n\t\"u_last_m_name\":\"galarga\",\n\t\"u_password\":\"Jordi29+\",\n\t\"u_phone\":\"7721446962\"\n}"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "375d7a9d-4412-4099-a8d8-9cfb9c024740",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "1766ce26-d5d3-47f7-ad92-e027665866c9",
+    "name": "create medic or admin",
+    "url": "http://localhost:5000/api/register/10000000",
+    "method": "POST",
+    "sortNum": 330000,
+    "created": "2023-05-07T07:37:52.452Z",
+    "modified": "2023-05-07T07:37:52.452Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"u_email\":\"jordi234@gmail.com\",\n\t\"u_name\":\"jordi\",\n\t\"u_last_name\":\"elver\",\n\t\"u_last_m_name\":\"galarga\",\n\t\"u_password\":\"Jordi29+\",\n\t\"u_phone\":\"7721446962\",\n\t\"u_status_p\":\"A\",\n\t\"u_s_id\":\"10000000\"\n}"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "f6e361d0-58c9-4a39-950e-78b66661d966",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "1766ce26-d5d3-47f7-ad92-e027665866c9",
+    "name": "validate",
+    "url": "http://localhost:5000/api/validate/user",
+    "method": "POST",
+    "sortNum": 340000,
+    "created": "2023-05-07T07:37:52.453Z",
+    "modified": "2023-05-07T07:37:52.453Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"u_email\":\"jordi@gmail.com\",\n\t\"u_password\":\"Jordi29+\"\n}"
+    },
+    "docs": ""
+  },
+  {
+    "_id": "ecc5f737-0653-4f44-a28f-da603d9fe62a",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "1766ce26-d5d3-47f7-ad92-e027665866c9",
+    "name": "list",
+    "url": "usuarios/all",
+    "method": "GET",
+    "sortNum": 350000,
+    "created": "2023-05-07T07:37:52.454Z",
+    "modified": "2023-05-07T07:41:05.633Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

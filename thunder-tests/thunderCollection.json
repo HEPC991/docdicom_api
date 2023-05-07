@@ -1,0 +1,65 @@
+[
+  {
+    "_id": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "colName": "dicom",
+    "created": "2023-05-07T07:37:52.413Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "0a40b83d-7a9b-4882-b514-5d2fef1f99fc",
+        "name": "images",
+        "containerId": "",
+        "created": "2023-05-07T07:37:52.419Z",
+        "sortNum": 10000
+      },
+      {
+        "_id": "e875bd2e-063d-46a1-82c1-60e5972dc427",
+        "name": "dicom",
+        "containerId": "",
+        "created": "2023-05-07T07:37:52.420Z",
+        "sortNum": 20000
+      },
+      {
+        "_id": "79d9d957-0797-4629-989e-36a58c80303c",
+        "name": "menus",
+        "containerId": "",
+        "created": "2023-05-07T07:37:52.421Z",
+        "sortNum": 30000
+      },
+      {
+        "_id": "543244fd-9208-472a-9727-180a73c29915",
+        "name": "Institutes",
+        "containerId": "",
+        "created": "2023-05-07T07:37:52.422Z",
+        "sortNum": 40000
+      },
+      {
+        "_id": "68549f79-ef2f-481b-85f9-e5961a66fcc6",
+        "name": "test",
+        "containerId": "",
+        "created": "2023-05-07T07:37:52.423Z",
+        "sortNum": 50000
+      },
+      {
+        "_id": "a9689512-82b7-4f62-84e3-545e419bb987",
+        "name": "medichal Studies",
+        "containerId": "",
+        "created": "2023-05-07T07:37:52.424Z",
+        "sortNum": 60000
+      },
+      {
+        "_id": "1766ce26-d5d3-47f7-ad92-e027665866c9",
+        "name": "Users",
+        "containerId": "",
+        "created": "2023-05-07T07:37:52.425Z",
+        "sortNum": 70000
+      }
+    ],
+    "settings": {
+      "options": {
+        "baseUrl": "http://localhost:5000/"
+      },
+      "envId": "c13b6aa9-571c-45be-8bfe-e49ee7f5800b"
+    }
+  }
+]
