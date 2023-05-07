@@ -13,14 +13,53 @@ insert = Blueprint('insert', __name__, url_prefix='/api/register/')
 @insert.post('medic_study')
 def registrar_estudio():
     try:
+        files = request.files.getlist('dicoms')
+        body = request.form.to_dict()
+
         cursor = conexion.connection.cursor()
         cursor.callproc('sp_register_medic_study', [
-            request.json['ms_date_study'], 
-            request.json['ms_description'], 
-            request.json['ms_status'], 
-            request.json['ms_mi_id'], 
-            request.json['ms_cs_id']])
-        conexion.connection.commit()
+            body['ms_date_study'], 
+            body['ms_description'], 
+            body['ms_mi_id'], 
+            body['ms_cs_id']])
+        # Obtenemos el ultimo id de la tabla medic_study
+        # conexion.connection.commit()
+        ma_id = cursor.fetchone()
+        cursor.close()
+
+        if len(files) > 0:
+            for file in files:
+                file = file.read()
+                dcm = pydicom.dcmread(BytesIO(file))
+                dcm_enconded = base64.b64encode(file).decode('utf-8')
+
+                img = Image.fromarray(dcm.pixel_array)
+        
+                with BytesIO() as output:
+                    img.save(output, format="png")
+                    imagen_codificada = base64.b64encode(output.getvalue()).decode('utf-8')
+
+                cursor = conexion.connection.cursor()
+                serie_number = dcm.SeriesInstanceUID
+
+                cursor.callproc('sp_save_dicom', [
+                    serie_number,
+                    dcm_enconded,
+                    imagen_codificada,
+                    ma_id['id']
+                ])
+                
+                conexion.connection.commit()
+                cursor.close()
+
+        cursor = conexion.connection.cursor()
+        cursor.callproc('sp_register_history', [
+            body['u_id'], # id del usuario
+            ma_id['id'] # id de la cita medica
+        ])
+        cursor.connection.commit()
+        cursor.close()
+
         return jsonify({'mensaje':'Estudio registrado.'}), 201
     except Exception as ex:
         return jsonify({'mensaje':ex}), 500
