@@ -1,13 +1,27 @@
-from flask import Flask, jsonify, request, Blueprint
+from flask import jsonify, request, Blueprint
 from database.db import conexion
 import pydicom
 from PIL import Image
 from io import BytesIO
 import base64
-import numpy
 
 
 test = Blueprint('test', __name__, url_prefix='/api/test/')
+
+@test.post('insert/files/and/data')
+def test_files_data():
+    try:
+        files = request.files.getlist('files')
+        data = request.form.to_dict()
+        filenames = []
+        if files is not None or len(files) > 0:
+            for file in files:
+                filenames.append(file.filename)
+
+        return jsonify({'message':"Not found" if len(filenames) == 0 else filenames, "data":"Not found" if len(data) == 0 else data})
+
+    except Exception as ex:
+        return jsonify({'message':ex})
 
 @test.get('number/<number>')
 def numberTest(number):
