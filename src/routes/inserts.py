@@ -38,20 +38,21 @@ def register_medical_study():
 # Optimal register medical study dicoms
 @insert.post('medical_study_dicom/<int:ma_id>')
 def register_md_dicom(ma_id):
-    try:
+    try:        
         dicom = request.files['dicom']
         file = dicom.read()
-        dcm = pydicom.dcmread(BytesIO(file))
+        dcm = pydicom.dcmread(BytesIO(file)).pixel_array.astype(float)
         dcm_enconded = base64.b64encode(file).decode('utf-8')
-
-        img = Image.fromarray(dcm.pixel_array)
+        rescaled_img = numpy.maximum(dcm, 0) / dcm.max() * 255
+        img = Image.fromarray(numpy.uint8(rescaled_img))
 
         with BytesIO() as output:
             img.save(output, format="png")
             imagen_codificada = base64.b64encode(output.getvalue()).decode('utf-8')
 
         cursor = conexion.connection.cursor()
-        serie_number = dcm.SeriesInstanceUID
+        # serie_number = dcm.SeriesInstanceUID
+        serie_number = pydicom.dcmread(BytesIO(file)).SeriesInstanceUID
 
         cursor.callproc('sp_save_dicom', [
             serie_number,
