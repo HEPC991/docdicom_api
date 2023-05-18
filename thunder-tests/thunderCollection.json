@@ -53,6 +53,13 @@
         "containerId": "",
         "created": "2023-05-07T07:37:52.425Z",
         "sortNum": 70000
+      },
+      {
+        "_id": "3276d27f-de6f-431a-be45-5d2872388c0b",
+        "name": "categories",
+        "containerId": "",
+        "created": "2023-05-12T15:03:04.549Z",
+        "sortNum": 80000
       }
     ],
     "settings": {
