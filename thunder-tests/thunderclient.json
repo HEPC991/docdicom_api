@@ -22,24 +22,24 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-05-07T07:37:52.421Z",
-    "modified": "2023-05-07T07:37:52.421Z",
+    "modified": "2023-05-11T15:42:40.744Z",
     "headers": [],
     "params": [],
-    "docs": ""
+    "tests": []
   },
   {
     "_id": "5b2a9184-81c1-400c-ad6b-6863050c2433",
     "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
     "containerId": "0a40b83d-7a9b-4882-b514-5d2fef1f99fc",
     "name": "list by cita medica",
-    "url": "http://localhost:5000/api/get/images/10000004",
+    "url": "http://localhost:5000/api/get/images/10000010",
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-05-07T07:37:52.422Z",
-    "modified": "2023-05-07T07:37:52.422Z",
+    "modified": "2023-05-15T16:13:11.874Z",
     "headers": [],
     "params": [],
-    "docs": ""
+    "tests": []
   },
   {
     "_id": "af4d469b-124e-47e9-ba53-16a620b45b75",
@@ -93,20 +93,6 @@
       ],
       "type": "formdata"
     },
-    "docs": ""
-  },
-  {
-    "_id": "15f58742-a5aa-4c51-b587-4b46b13067e3",
-    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
-    "containerId": "e875bd2e-063d-46a1-82c1-60e5972dc427",
-    "name": "list",
-    "url": "http://localhost:5000/api/get/dicom/all",
-    "method": "GET",
-    "sortNum": 60000,
-    "created": "2023-05-07T07:37:52.425Z",
-    "modified": "2023-05-07T07:37:52.425Z",
-    "headers": [],
-    "params": [],
     "docs": ""
   },
   {
@@ -186,10 +172,10 @@
     "method": "GET",
     "sortNum": 110000,
     "created": "2023-05-07T07:37:52.430Z",
-    "modified": "2023-05-07T07:37:52.430Z",
+    "modified": "2023-05-12T15:01:39.348Z",
     "headers": [],
     "params": [],
-    "docs": ""
+    "tests": []
   },
   {
     "_id": "e9f1a49b-ec72-4c5c-964d-0dce8a026a6e",
@@ -200,10 +186,10 @@
     "method": "GET",
     "sortNum": 120000,
     "created": "2023-05-07T07:37:52.431Z",
-    "modified": "2023-05-07T07:37:52.431Z",
+    "modified": "2023-05-12T14:58:20.694Z",
     "headers": [],
     "params": [],
-    "docs": ""
+    "tests": []
   },
   {
     "_id": "303e9520-5ad9-4438-a369-e1aba23e240e",
@@ -250,10 +236,10 @@
     "method": "GET",
     "sortNum": 150000,
     "created": "2023-05-07T07:37:52.434Z",
-    "modified": "2023-05-07T07:37:52.434Z",
+    "modified": "2023-05-12T15:01:03.489Z",
     "headers": [],
     "params": [],
-    "docs": ""
+    "tests": []
   },
   {
     "_id": "c8177478-030d-4a7b-a47f-4c027aa11afc",
@@ -518,10 +504,10 @@
     "method": "GET",
     "sortNum": 270000,
     "created": "2023-05-07T07:37:52.446Z",
-    "modified": "2023-05-07T07:37:52.446Z",
+    "modified": "2023-05-11T15:53:49.636Z",
     "headers": [],
     "params": [],
-    "docs": ""
+    "tests": []
   },
   {
     "_id": "cfc06fe1-2932-4797-928a-a0000e5cc57d",
@@ -655,6 +641,20 @@
     "sortNum": 350000,
     "created": "2023-05-07T07:37:52.454Z",
     "modified": "2023-05-07T07:41:05.633Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b9af7287-410f-424d-9420-5152e0fce21a",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "3276d27f-de6f-431a-be45-5d2872388c0b",
+    "name": "list",
+    "url": "http://localhost:5000/api/get/categorias/all",
+    "method": "GET",
+    "sortNum": 360000,
+    "created": "2023-05-12T15:03:20.202Z",
+    "modified": "2023-05-12T15:04:03.089Z",
     "headers": [],
     "params": [],
     "tests": []

@@ -9,6 +9,67 @@ import numpy
 
 insert = Blueprint('insert', __name__, url_prefix='/api/register/')
 
+# Optimal register medical study
+@insert.post('medical_study')
+def register_medical_study():
+    try:
+        cursor = conexion.connection.cursor()
+        cursor.callproc('sp_register_medic_study', [
+            request.json['ms_date_study'], 
+            request.json['ms_description'], 
+            request.json['ms_mi_id'], 
+            request.json['ms_cs_id']])
+        # Obtenemos el ultimo id de la tabla medic_study
+        ma_id = cursor.fetchone()
+        cursor.close()
+        conexion.connection.commit()
+
+        return jsonify({
+            "message": "register medical study success (pending to upload dicoms)",
+            "medical_study_id": ma_id["id"]
+        })
+        
+        # print(request.json)
+        # return jsonify({"message": "some"})
+    except Exception as ex:
+        return jsonify({"message": ex}), 500
+
+
+# Optimal register medical study dicoms
+@insert.post('medical_study_dicom/<int:ma_id>')
+def register_md_dicom(ma_id):
+    try:
+        dicom = request.files['dicom']
+        file = dicom.read()
+        dcm = pydicom.dcmread(BytesIO(file))
+        dcm_enconded = base64.b64encode(file).decode('utf-8')
+
+        img = Image.fromarray(dcm.pixel_array)
+
+        with BytesIO() as output:
+            img.save(output, format="png")
+            imagen_codificada = base64.b64encode(output.getvalue()).decode('utf-8')
+
+        cursor = conexion.connection.cursor()
+        serie_number = dcm.SeriesInstanceUID
+
+        cursor.callproc('sp_save_dicom', [
+            serie_number,
+            dcm_enconded,
+            imagen_codificada,
+            ma_id
+        ])
+        
+        cursor.close()
+        conexion.connection.commit()
+
+        return jsonify({"message": f"Upload dicom success in {ma_id}"}), 201
+
+        # return jsonify({"message": str(type(dicom)), "ma_id": ma_id}), 201
+    except Exception as ex:
+        return jsonify({"message": ex}), 500
+
+
 # Registrar un estudio medico
 @insert.post('medic_study')
 def registrar_estudio():
