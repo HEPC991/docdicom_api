@@ -1,3 +1,4 @@
+from encrypt.doccrypt import bcrypt
 from flask import Flask, jsonify, request, Blueprint
 from database.db import conexion
 
@@ -80,26 +81,40 @@ def actualizar_especialidad(id):
     except Exception as ex:
         return jsonify({'mensaje':'Error de conexion'}),500
     
-@update.put('usuario/<id>')
-def actualizar_usuario(id):
+@update.put('user')
+def actualizar_usuario():
     try:
         cursor = conexion.connection.cursor()
-        cursor.callproc('sp_update_user', [
-            id,
-            request.json['u_name'],
-            request.json['u_lastname'],
-            request.json['u_email'],
-            request.json['u_phone'],
-            request.json['u_last_m_name'],
-            request.json['u_password'],
-            request.json['u_r_id'],
-            request.json['u_s_id'],
-            request.remote_addr,
-            request.json['m_by_user']
-        ])
+        # "u_password" in request.json
+        if request.json['u_password'] == "":
+            cursor.callproc('sp_update_user_pass_no_change', [
+                request.json['u_email'],
+                request.json['u_name'],
+                request.json['u_last_name'],
+                request.json['u_last_m_name'],
+                request.json['u_phone'],
+                request.json['u_status_p'],
+                request.json['u_r_id'],
+                request.json['u_s_id'],
+                request.json['u_id'],
+            ])
+        else:
+            cursor.callproc('sp_update_user', [
+                request.json['u_email'],
+                request.json['u_name'],
+                request.json['u_last_name'],
+                request.json['u_last_m_name'],
+                bcrypt.generate_password_hash(request.json['u_password']),
+                request.json['u_phone'],
+                request.json['u_status_p'],
+                request.json['u_r_id'],
+                request.json['u_s_id'],
+                request.json['u_id'],
+            ])
         conexion.connection.commit()
         return jsonify({'mensaje':'Usuario actualizado.'})
     except Exception as ex:
+        print(ex)
         return jsonify({'mensaje':'Error de conexion'}),500
     
 @update.put('rol/<id>')

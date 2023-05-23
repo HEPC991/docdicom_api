@@ -586,14 +586,15 @@
     "method": "POST",
     "sortNum": 320000,
     "created": "2023-05-07T07:37:52.451Z",
-    "modified": "2023-05-07T07:37:52.451Z",
+    "modified": "2023-05-23T18:08:49.270Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n\t\"u_email\":\"jordi88@gmail.com\",\n\t\"u_name\":\"jordi\",\n\t\"u_last_name\":\"elver\",\n\t\"u_last_m_name\":\"galarga\",\n\t\"u_password\":\"Jordi29+\",\n\t\"u_phone\":\"7721446962\"\n}"
+      "raw": "{\n\t\"u_email\":\"jordi88@gmail.com\",\n\t\"u_name\":\"jordi\",\n\t\"u_last_name\":\"elver\",\n\t\"u_last_m_name\":\"galarga\",\n\t\"u_password\":\"Jordi29+\",\n\t\"u_phone\":\"7721446962\"\n}",
+      "form": []
     },
-    "docs": ""
+    "tests": []
   },
   {
     "_id": "375d7a9d-4412-4099-a8d8-9cfb9c024740",
@@ -636,11 +637,11 @@
     "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
     "containerId": "1766ce26-d5d3-47f7-ad92-e027665866c9",
     "name": "list",
-    "url": "usuarios/all",
+    "url": "http://localhost:5000/api/get/usuarios/all",
     "method": "GET",
     "sortNum": 350000,
     "created": "2023-05-07T07:37:52.454Z",
-    "modified": "2023-05-07T07:41:05.633Z",
+    "modified": "2023-05-23T14:35:40.800Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -657,6 +658,25 @@
     "modified": "2023-05-12T15:04:03.089Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "fba295a1-53b6-4e94-a0ea-f2ae4e348e5e",
+    "colId": "5bab9f92-2426-43a0-af63-3d16a7c56674",
+    "containerId": "1766ce26-d5d3-47f7-ad92-e027665866c9",
+    "name": "update user",
+    "url": "http://localhost:5000/api/update/user",
+    "method": "PUT",
+    "sortNum": 370000,
+    "created": "2023-05-23T17:53:39.177Z",
+    "modified": "2023-05-23T18:11:42.815Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"u_email\": \"alterex@gmail\",\n  \"u_name\": \"Alterex\",\n  \"u_last_name\": \"Dest\",\n  \"u_last_m_name\": \"Dest\",\n  \"u_password\": \"123456\",\n  \"u_phone\": \"1234567890\",\n  \"u_status_p\": \"A\",\n  \"u_r_id\": 10000000,\n  \"u_s_id\": 10000000,\n  \"u_id\": 10000015\n}",
+      "form": []
+    },
     "tests": []
   }
 ]

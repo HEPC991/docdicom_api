@@ -122,6 +122,87 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_update_user` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_update_user`(IN ui_email varchar(45), IN ui_name varchar(40),
+
+                                                      IN ui_last_name varchar(25), IN ui_last_m_name varchar(25),
+
+                                                      IN ui_password varchar(60), IN ui_phone varchar(10),
+
+                                                      IN ui_status_p enum ('A', 'D'), IN ui_s_id bigint unsigned,
+
+                                                      IN ui_r_id bigint unsigned, IN ui_id bigint unsigned)
+begin
+
+
+
+    UPDATE users
+    SET
+        u_email = ui_email,
+        u_name = ui_name,
+        u_last_name = ui_last_name,
+        u_last_m_name = ui_last_m_name,
+        u_password = ui_password,
+        u_phone = ui_phone,
+        u_status_p = ui_status_p,
+        u_r_id = ui_r_id,
+        u_s_id = ui_s_id
+    WHERE u_id = ui_id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_update_user_pass_no_change` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_update_user_pass_no_change`(IN ui_email varchar(45), IN ui_name varchar(40),
+
+                                                      IN ui_last_name varchar(25), IN ui_last_m_name varchar(25),
+
+                                                      IN ui_phone varchar(10),
+
+                                                      IN ui_status_p enum ('A', 'D'), IN ui_s_id bigint unsigned,
+
+                                                      IN ui_r_id bigint unsigned, IN ui_id bigint unsigned)
+begin
+
+
+
+    UPDATE users
+    SET
+        u_email = ui_email,
+        u_name = ui_name,
+        u_last_name = ui_last_name,
+        u_last_m_name = ui_last_m_name,
+        u_phone = ui_phone,
+        u_status_p = ui_status_p,
+        u_r_id = ui_r_id,
+        u_s_id = ui_s_id
+    WHERE u_id = ui_id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `sp_deactivate_user` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -703,6 +784,8 @@ begin
     select u_id `id`,
 
            u_email `email`,
+
+           u_name `name`,
 
            u_last_name `last_name`,
 
